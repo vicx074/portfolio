@@ -1,0 +1,27 @@
+<div class="flex min-h-screen w-full">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Logo -->
+    <div class="sidebar-logo">VICX</div>
+    
+    <!-- Menu -->
+    <nav class="sidebar-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
+      <a routerLink="/about" routerLinkActive="active">ABOUT</a>
+      <a routerLink="/works" routerLinkActive="active">WORKS</a>
+      <a routerLink="/contact" routerLinkActive="active">CONTACT</a>
+    </nav>
+    
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      Copyright ©2025 Victor<br>
+      Eduardo. All right<br>
+      reserved.
+    </div>
+  </div>
+  
+  <!-- Conteúdo Principal -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

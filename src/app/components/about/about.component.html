@@ -1,0 +1,50 @@
+<div class="about-container">
+  <section class="about-me">
+    <h2 class="section-title">Sobre mim</h2>
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-header">
+          <img src="assets/user-svgrepo-com.svg" alt="User Icon" class="card-icon">
+          <h3>Quem sou eu</h3>
+        </div>
+        <p>Olá! Tenho 19 anos e sou um desenvolvedor FullStack apaixonado por tecnologia e inovação. Estou constantemente em busca de novos desafios e oportunidades para expandir meu conhecimento no mundo do desenvolvimento de software.</p>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <img src="assets/suitcase-tag-svgrepo-com.svg" alt="Experience Icon" class="card-icon">
+          <h3>Experiência</h3>
+        </div>
+        <p>Desde abril de 2025, atuo profissionalmente como desenvolvedor FullStack, utilizando tecnologias como Python Flask, React com Next.js, Angular, PostgreSQL e TypeScript para criar soluções eficientes e interfaces intuitivas que resolvem problemas reais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="technologies">
+    <div class="particles-container">
+      <div class="particle" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"></div>
+    </div>
+    <h2 class="section-title">Tecnologias</h2>
+    <div class="tech-display-container">
+      <div class="tech-list">
+        <ul>
+          <li *ngFor="let tech of technologies" (click)="selectTechnology(tech)" [class.selected]="tech === selectedTechnology">
+            <div class="tech-icon-wrapper">
+              <img [src]="tech.icon" [alt]="tech.name + ' icon'" class="tech-icon-small">
+            </div>
+            <span>{{ tech.name }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="tech-details">
+        <div *ngIf="selectedTechnology" class="tech-content">
+          <div class="tech-icon-animation">
+            <img [src]="selectedTechnology.icon" [alt]="selectedTechnology.name + ' icon'" class="tech-icon-large">
+          </div>
+          <h3>{{ selectedTechnology.name }}</h3>
+          <p>{{ selectedTechnology.description }}</p>
+        </div>
+        <a href="assets/CV-VICTOR_EDUARDO.pdf" download class="download-cv-button">Download do Currículo</a>
+      </div>
+    </div>
+  </section>
+</div>
