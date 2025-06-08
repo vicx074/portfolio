@@ -151,26 +151,60 @@
 }
 
 /* Responsividade */
+@media (max-width: 991px) {
+  .works-container {
+    padding: 1.5rem;
+  }
+  
+  .maintenance-section {
+    max-width: 600px;
+    padding: 1.8rem;
+  }
+  
+  .maintenance-text h1 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .fun-messages p,
+  .fun-messages li {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .works-container {
     padding: 1rem;
+    height: auto;
+    min-height: 90vh;
   }
   
   .maintenance-section {
     padding: 1.5rem;
+    max-width: 100%;
   }
   
   .maintenance-text h1 {
     font-size: 1.8rem;
   }
   
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .construction-animation {
     height: 150px;
+    margin-bottom: 1.5rem;
   }
   
   .gear-1 {
     width: 80px;
     height: 80px;
+    left: 25%;
   }
   
   .gear-2 {
@@ -181,5 +215,71 @@
   .tools {
     width: 70px;
     height: 70px;
+    right: 25%;
+  }
+  
+  .fun-messages {
+    margin-bottom: 1.5rem;
+  }
+  
+  .fun-messages p,
+  .fun-messages li {
+    font-size: 0.95rem;
+    margin: 0.6rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .works-container {
+    padding: 0.8rem;
+  }
+  
+  .maintenance-section {
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+  
+  .maintenance-text h1 {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .construction-animation {
+    height: 120px;
+  }
+  
+  .gear-1 {
+    width: 60px;
+    height: 60px;
+    left: 20%;
+  }
+  
+  .gear-2 {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .tools {
+    width: 50px;
+    height: 50px;
+    right: 20%;
+  }
+  
+  .fun-messages p,
+  .fun-messages li {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  
+  .progress-bar {
+    height: 15px;
+  }
+  
+  .progress-text {
+    font-size: 0.8rem;
   }
 }

@@ -413,4 +413,118 @@
     width: 200px;
     height: 200px;
   }
+}
+
+/* Estilos responsivos para a página inicial */
+@media (max-width: 991px) {
+  .home-content {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+  
+  .home-name {
+    font-size: 3.5rem;
+  }
+  
+  .tech-bubble {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-container {
+    height: auto;
+    min-height: 80vh;
+  }
+  
+  .home-content {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+  
+  .text-section {
+    order: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .illustration-section {
+    order: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .illustration-container {
+    width: 70%;
+    max-width: 300px;
+  }
+  
+  .main-illustration {
+    width: 100%;
+  }
+  
+  .home-name {
+    font-size: 3rem;
+  }
+  
+  .home-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .tech-bubbles {
+    justify-content: center;
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .contact-info-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-name {
+    font-size: 2.5rem;
+  }
+  
+  .greeting {
+    font-size: 1.2rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .illustration-container {
+    width: 90%;
+  }
+  
+  .tech-bubble {
+    width: 40px;
+    height: 40px;
+  }
 } 

@@ -1,24 +1,56 @@
 <div class="flex min-h-screen w-full">
+  <!-- Mobile Menu Button -->
+  <button class="mobile-menu-btn" (click)="toggleSidebar()">
+    <span class="menu-icon" [class.open]="sidebarOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </button>
+
   <!-- Sidebar -->
-  <div class="sidebar">
+  <div class="sidebar" [class.open]="sidebarOpen">
     <!-- Logo -->
     <div class="sidebar-logo">VICX</div>
     
     <!-- Menu -->
     <nav class="sidebar-nav">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
-      <a routerLink="/about" routerLinkActive="active">ABOUT</a>
-      <a routerLink="/works" routerLinkActive="active">WORKS</a>
-      <a routerLink="/contact" routerLinkActive="active">CONTACT</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeSidebarOnMobile()">
+        <div class="nav-item">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-text">INÍCIO</span>
+        </div>
+      </a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+        <div class="nav-item">
+          <span class="nav-icon">👤</span>
+          <span class="nav-text">SOBRE</span>
+        </div>
+      </a>
+      <a routerLink="/works" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+        <div class="nav-item">
+          <span class="nav-icon">💼</span>
+          <span class="nav-text">PROJETOS</span>
+        </div>
+      </a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+        <div class="nav-item">
+          <span class="nav-icon">✉️</span>
+          <span class="nav-text">CONTATO</span>
+        </div>
+      </a>
     </nav>
     
     <!-- Footer -->
     <div class="sidebar-footer">
       Copyright ©2025 Victor<br>
-      Eduardo. All right<br>
-      reserved.
+      Eduardo. Todos os direitos<br>
+      reservados.
     </div>
   </div>
+  
+  <!-- Backdrop para dispositivos móveis -->
+  <div class="mobile-backdrop" [class.open]="sidebarOpen" (click)="closeSidebar()"></div>
   
   <!-- Conteúdo Principal -->
   <main class="content">
