@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.animateParticles();
-    this.initTypeEffect();
   }
 
   animateParticles(): void {
@@ -28,19 +27,5 @@ export class HomeComponent implements OnInit {
       // Atraso aleatório nas animações
       htmlElement.style.animationDelay = `${Math.random() * 5}s`;
     });
-  }
-
-  initTypeEffect(): void {
-    const roles = ['FullStack', 'Frontend', 'Backend', 'Angular', 'React'];
-    let currentIndex = 0;
-    
-    setInterval(() => {
-      const typedElement = document.querySelector('.typed-text');
-      if (typedElement) {
-        // Efeito de digitação
-        typedElement.textContent = roles[currentIndex];
-        currentIndex = (currentIndex + 1) % roles.length;
-      }
-    }, 3000);
   }
 } 

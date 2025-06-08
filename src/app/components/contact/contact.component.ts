@@ -1,16 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+interface ContactForm {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+  formData: ContactForm = {
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  };
+  
+  isSubmitting = false;
+  formMessage = '';
+  formSuccess = false;
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.animateParticles();
@@ -18,18 +37,46 @@ export class ContactComponent implements OnInit {
 
   animateParticles(): void {
     const particles = document.querySelectorAll('.particle');
-    particles.forEach((particle: Element, index) => {
+    particles.forEach((particle: Element) => {
       const htmlElement = particle as HTMLElement;
-      htmlElement.style.left = `${Math.random() * 100}%`;
-      htmlElement.style.top = `${Math.random() * 100}%`;
       htmlElement.style.animationDelay = `${Math.random() * 5}s`;
     });
   }
 
-  submitForm(event: Event): void {
+  submitForm(event: Event) {
     event.preventDefault();
-    // Aqui seria implementada a lógica para enviar o formulário
-    console.log('Formulário enviado');
-    // Resetar o formulário ou mostrar mensagem de sucesso
+    
+    if (this.isSubmitting) return;
+    
+    this.isSubmitting = true;
+    this.formMessage = '';
+    
+    // URL do backend Flask (ajuste conforme necessário)
+    const backendUrl = 'http://localhost:5000/send-email';
+    
+    this.http.post(backendUrl, this.formData)
+      .subscribe({
+        next: (response: any) => {
+          this.formSuccess = true;
+          this.formMessage = 'Mensagem enviada com sucesso!';
+          this.resetForm();
+          this.isSubmitting = false;
+        },
+        error: (error) => {
+          console.error('Erro ao enviar mensagem:', error);
+          this.formSuccess = false;
+          this.formMessage = 'Erro ao enviar mensagem. Por favor, tente novamente.';
+          this.isSubmitting = false;
+        }
+      });
+  }
+  
+  private resetForm() {
+    this.formData = {
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    };
   }
 }
